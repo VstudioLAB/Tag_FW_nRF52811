@@ -131,6 +131,38 @@ void TagAssociated() {
                 if (displayCustomImage(CUSTOM_IMAGE_BUTTON2)) fastNextCheckinDelay = 0;
                 fastNextCheckin = true;
                 break;
+            case WAKEUP_REASON_BUTTON3:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON3)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON4:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON4)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON5:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON5)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON6:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON6)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON7:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON7)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON8:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON8)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON9:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON9)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
+            case WAKEUP_REASON_BUTTON10:
+                if (displayCustomImage(CUSTOM_IMAGE_BUTTON10)) fastNextCheckinDelay = 0;
+                fastNextCheckin = true;
+                break;
             case WAKEUP_REASON_GPIO:
                 if (displayCustomImage(CUSTOM_IMAGE_GPIO)) fastNextCheckinDelay = 0;
                 fastNextCheckin = true;
@@ -153,7 +185,7 @@ void TagAssociated() {
             }
 
             // since we've had succesful contact, and communicated the wakeup reason succesfully, we can now reset to the 'normal' status
-            if ((wakeUpReason == WAKEUP_REASON_GPIO) | (wakeUpReason == WAKEUP_REASON_BUTTON1) | (wakeUpReason == WAKEUP_REASON_BUTTON2) | (wakeUpReason == WAKEUP_REASON_NFC) | (wakeUpReason == CUSTOM_IMAGE_RF_WAKE)) {
+            if ((wakeUpReason == WAKEUP_REASON_GPIO) | (wakeUpReason == WAKEUP_REASON_BUTTON1) | (wakeUpReason == WAKEUP_REASON_BUTTON2) | (wakeUpReason == WAKEUP_REASON_BUTTON3) | (wakeUpReason == WAKEUP_REASON_BUTTON4) | (wakeUpReason == WAKEUP_REASON_BUTTON5) | (wakeUpReason == WAKEUP_REASON_BUTTON6) | (wakeUpReason == WAKEUP_REASON_BUTTON7) | (wakeUpReason == WAKEUP_REASON_BUTTON8) | (wakeUpReason == WAKEUP_REASON_BUTTON9) | (wakeUpReason == WAKEUP_REASON_BUTTON10) | (wakeUpReason == WAKEUP_REASON_NFC) | (wakeUpReason == CUSTOM_IMAGE_RF_WAKE)) {
                 buttonCheckOut = true;
             }
             wakeUpReason = WAKEUP_REASON_TIMED;
