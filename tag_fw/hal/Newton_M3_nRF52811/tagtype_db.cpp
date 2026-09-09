@@ -362,6 +362,7 @@ void identifyTagInfo() {
             epd->drawDirectionRight = false;
             tag.OEPLtype = SOLUM_M3_BWRY_60;
             epd->epdMirrorV = true;
+            printf("tag rec ok");
             break;
         case STYPE_SIZE_013:
             tag.ledInverted = true;
