@@ -62,6 +62,16 @@
 
 #define EEPROM_SETTINGS_AREA_START 0
 
+enum EpdSleepGpio : uint8_t {
+    EPD_SLEEP_CS_HIGH   = 1 << 0,
+    EPD_SLEEP_RST_HIGH  = 1 << 1,
+    EPD_SLEEP_DC_HIGH   = 1 << 2,
+    EPD_SLEEP_CLK_HIGH  = 1 << 3,
+    EPD_SLEEP_MOSI_HIGH = 1 << 4,
+    EPD_SLEEP_BS_HIGH   = 1 << 5,
+};
+
+
 void initRTC0(uint32_t ms);
 int8_t startHFCLK(void);
 uint8_t isHFCLKstable(void);
@@ -89,6 +99,13 @@ class epdInterface {
     virtual void drawNoWait() = 0;
     virtual void epdWaitRdy() = 0;
     virtual void selectLUT(uint8_t lut) = 0;
+
+    // GPIOs that must remain HIGH when the EPD is put to sleep.
+    // Default 0 preserves the existing all-low behaviour.
+    virtual uint8_t getSleepGpioHighMask() const {
+        return 0;
+    }
+    
     uint8_t controllerType = 0;
     uint16_t Xres;
     uint16_t Yres;
@@ -101,6 +118,8 @@ class epdInterface {
     bool epdMirrorH = false;
 //    bool mirrorV = false;
 //    bool mirrorH = false;
+
+    
    protected:
     virtual void epdWriteDisplayData() = 0;
 };
@@ -127,5 +146,7 @@ struct tagSpecs {
     uint32_t imageSize = 0;
     extraButtons customSetup;
 };
+
+
 
 extern tagSpecs tag;
